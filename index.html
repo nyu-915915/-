@@ -3,9 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <title>Calendar</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Noto+Sans+JP&display=swap" rel="stylesheet">
+
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair Display:ital,wght@0,300;0,400;1,400;0,500;0,600;0,900&display=swap" rel="stylesheet">
+
   <style>
     body {
-      background: #0f172a; /* ダークネイビー */
+      background: #ffffff;
       color: white;
       display: flex;
       justify-content: center;
@@ -16,16 +22,19 @@
     }
 
     .calendar {
-      width: 200px;
-      padding: 15px;
-      background: #111827;
-      border-radius: 15px;
+      width: px;
+      padding: 10px;
+      background: #374151;
+      border-radius: px;
     }
 
     .header {
       text-align: left;
-      font-size: 18px;
+      font-size: 20px;
       margin-bottom: 10px;
+     font-family: 'Playfair Display', serif;
+　　  font-weight: 400;
+   font-style: italic;
     }
 
     .days, .dates {
@@ -38,10 +47,11 @@
       font-size: 12px;
       color: #9ca3af;
       margin-bottom: 5px;
+     font-family: 'Playfair Display', serif;
     }
 
     .dates div {
-      padding: 10px 0;
+      padding: 3px 0;
       margin: 2px;
       border-radius: 8px;
     }
@@ -51,10 +61,11 @@
     }
 .day {
   position: relative;
-  height: 20px;
+  height: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: 'Playfair Display', serif;
 }
 
 .date-number {
@@ -63,13 +74,26 @@
 
 .star {
   position: absolute;
-  top: 10px;
-  right: 4px;
+  top: -12px;
+  right: -6px;
   font-size: 30px;
-  color: #60a5fa;
+  color: #de9fe0;
+  filter: drop-shadow(0 0 5px #60a5fa);
+
 }
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Noto+Sans+JP&display=swap" rel="stylesheet">
+
+
+
+
+.star {
+  filter: drop-shadow(0 0 5px #eacceb);
+}
+
+
+
+
   </style>
+
 </head>
 <body>
 
@@ -95,7 +119,7 @@
 
   // 月の名前（英語）
   const monthNames = [
-    "January","February","March","April","May","June",
+    "January","Febrary","March","April","May","June",
     "July","August","September","October","November","December"
   ];
 
@@ -131,13 +155,16 @@
     datesContainer.appendChild(day);
   }
 
-   .header {
-  font-family: 'Playfair Display', serif;
-}
+ 
 
-.day {
-  font-family: 'Noto Sans JP', sans-serif;
-}
+
+
+
+
+
+
+
+
 
 </script>
 
