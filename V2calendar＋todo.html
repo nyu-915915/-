@@ -120,6 +120,29 @@ body{
     margin-top:15px;
 }
 
+.todo-form{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+
+    margin-top:20px;
+}
+
+.todo-form input,
+.todo-form button{
+    padding:10px;
+    border:none;
+    border-radius:10px;
+}
+
+.todo-form button{
+    background:#ff6ba6;
+    color:white;
+    cursor:pointer;
+}
+
+
+    
 /* ポップアップ */
 
 .popup{
@@ -185,6 +208,17 @@ body{
 
 <div class="todo-section">
 
+<div class="todo-form">
+
+<input type="number" id="todoDate" placeholder="日付">
+
+<input type="text" id="todoText" placeholder="TODO内容">
+
+<button onclick="addTodo()">追加</button>
+
+</div>
+
+
 <h2>&lt; Todo &gt;</h2>
 
 <div class="todo-item">
@@ -226,11 +260,18 @@ body{
 
 /* TODOデータ */
 
-const todos = {
+let todos = JSON.parse(
+    localStorage.getItem("todos")
+) || {
     3:["FP勉強"],
     6:["面接準備","スーツ確認"],
     15:["ネイル予約"]
 };
+
+
+
+
+    
 /* 今日の日付取得 */
 
 const today = new Date();
@@ -358,6 +399,51 @@ function closePopup(){
     document.getElementById("popup").style.display="none";
 
 }
+
+    
+/* TODO追加 */
+
+function addTodo(){
+    const date =
+        document.getElementById("todoDate").value;
+
+    const text =
+        document.getElementById("todoText").value;
+
+    /* 空なら終了 */
+
+    if(!date || !text){
+        return;
+    }
+
+    /* 初回 */
+
+    if(!todos[date]){
+        todos[date] = [];
+    }
+
+    /* 追加 */
+
+    todos[date].push(text);
+
+    /* 保存 */
+
+    saveTodos();
+
+    /* 再描画 */
+
+    renderCalendar();
+
+}
+    
+    /* 保存 */
+
+function saveTodos(){
+
+    localStorage.setItem(
+        "todos",
+        JSON.stringify(todos)
+
 
 
     /* 前月 */
